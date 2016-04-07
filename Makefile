@@ -110,12 +110,10 @@ README.md: Intro.md $(mds)
 .gitignore:
 	echo "\n*~\n.*.swp\n*.?#?\n.*.lck" > $@
 
-.git: .gitignore
+.git:
 	git init
-	git add .
-	git commit -m 'First Commit'
 
-git: .git
+git: .git .gitignore
 	git add . --all
 	git commit -am 'from Makefile'
 	git push
