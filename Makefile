@@ -36,9 +36,7 @@ gpis := $(patsubst %.brd,%.gpi,$(boards))
 back_pngs := $(patsubst %.brd,%_back.png,$(boards))
 mds := $(patsubst %.brd,%.md,$(boards))
 
-# .SILENT: all gerbers git github clean
-
-# .PHONY: gerbers
+# .SILENT: all git github clean
 
 .SECONDARY: $(pngs) $(mds)
 
@@ -46,13 +44,9 @@ mds := $(patsubst %.brd,%.md,$(boards))
 
 .IGNORE: push
 
-GERBER_DIR=gerbers
+.PHONY: pngs clean clean_gerbers clean_temps clean_pngs clean_zips clean_mds all
 
-.PHONY: gerbers pngs clean clean_gerbers clean_temps clean_pngs clean_zips clean_mds all
-
-all: gerbers push
-
-gerbers: $(gerbers)
+all: push
 
 pngs: $(pngs) $(back_pngs)
 
@@ -131,7 +125,7 @@ README.md: Intro.md $(mds)
 	git remote add origin git@github.com:$(github_org)/$(current_dir).git
 	git push -u origin master
 
-push: .github .gitignore $(boards) $(schematics) $(drawings) README.md 
+push: .github .gitignore $(boards) $(schematics) $(drawings) $(gerbers) README.md Makefile
 	git add . --all
 	git commit -am 'from Makefile'
 	git push
