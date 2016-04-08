@@ -12,15 +12,25 @@ TOP_SOLDERMASK_COLOR?=\#009900
 BOTTOM_SOLDERMASK_COLOR?=\#2D114A
 GERBV_OPTIONS= --export=png --dpi=$(GERBER_IMAGE_RESOLUTION) --background=$(BACKGROUND_COLOR) --border=1
 
+# Github vars
+github_org = $(shell git config github.org)
+github_user = $(shell git config github.user)
+github_token = $(shell git config github.token)
+mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
+current_dir := $(notdir $(patsubst %/,%,$(dir $(mkfile_path))))
+
+
 # # STUFF YOU WILL NEED:
 # #  gerbv and eagle must be installed and must be in path.
 # 
 # # On Mac OSX we will create a link to the Eagle binary:
 # # sudo ln -s /Applications/EAGLE/EAGLE.app/Contents/MacOS/EAGLE /usr/bin/eagle 
 
+schematics := $(wildcard *.sch)
 boards := $(wildcard *.brd)
-zips := $(patsubst %.brd,%_gerber.zip,$(boards))
-pngs := $(patsubst %.brd,%.png,$(boards))
+drawings := $(wildcard *.dxf)
+gerbers := $(patsubst %.brd,%_gerber.zip,$(boards))
+pngs := $(patsubst %.brd,%.png,$(boards)) $(patsubst %.dxf,%.png,$(drawings))
 dris := $(patsubst %.brd,%.dri,$(boards))
 gpis := $(patsubst %.brd,%.gpi,$(boards))
 back_pngs := $(patsubst %.brd,%_back.png,$(boards))
@@ -30,23 +40,21 @@ mds := $(patsubst %.brd,%.md,$(boards))
 
 # .PHONY: gerbers
 
-.SECONDARY: $(pngs)
+.SECONDARY: $(pngs) $(mds)
 
 .INTERMEDIATE: $(dris) $(gpis)
 
-.IGNORE: git
+.IGNORE: push
 
 GERBER_DIR=gerbers
 
-.PHONY: zips pngs md clean clean_gerbers clean_temps clean_pngs clean_zips clean_mds all
+.PHONY: gerbers pngs clean clean_gerbers clean_temps clean_pngs clean_zips clean_mds all
 
-all: md zips git
+all: gerbers push
 
-zips: $(zips)
+gerbers: $(gerbers)
 
 pngs: $(pngs) $(back_pngs)
-
-md: $(mds) README.md
 
 README.md: Intro.md $(mds)
 	cat $+ > README.md 
@@ -86,6 +94,9 @@ README.md: Intro.md $(mds)
 	zip $@ $^ $*.dri $*.gpi 
 	rm -f $*.dri $*.gpi
 
+%.png: %.dxf
+	dxf2png $@
+
 %.png: %.TXT %.GTO %.GTS %.GTL
 	gerbv $(GERBV_OPTIONS) --output=$@ \
         --f=$(HOLES_COLOR) $*.TXT \
@@ -108,12 +119,19 @@ README.md: Intro.md $(mds)
 	echo "\n\n| Front | Back |\n| --- | --- |\n| ![Front]($*.png) | ![Back]($*_back.png) |\n\n" >>  $@
 
 .gitignore:
-	echo "\n*~\n.*.swp\n*.?#?\n.*.lck" > $@
+	echo "\n*~\n.*.swp\n*.?#?\n.*.lck\n.github" >> $@
 
 .git:
 	git init
+	git add . --all
+	git commit -am 'first commit'
 
-git: .git .gitignore
+.github: | .git
+	curl -H "Authorization: token $(github_token)" -o .github https://api.github.com/orgs/$(github_org)/repos -d "{\"name\": \"$(current_dir)\", \"description\": \"$(current_dir)\", \"private\": false, \"has_issues\": true, \"has_downloads\": true, \"has_wiki\": false}"
+	git remote add origin git@github.com:$(github_org)/$(current_dir).git
+	git push -u origin master
+
+push: .github .gitignore $(boards) $(schematics) $(drawings) README.md 
 	git add . --all
 	git commit -am 'from Makefile'
 	git push
@@ -138,3 +156,21 @@ clean_mds:
 
 clean: clean_gerbers clean_temps clean_pngs clean_zips clean_mds
 
+info:
+	echo $(github_user)
+
+
+
+#  # Get user input
+#  read "REPONAME?New repo name (enter for ${PWD##*/}):"
+#  read "USER?Git Username (enter for ${GITHUBUSER}):"
+#  read "DESCRIPTION?Repo Description:"
+#  
+#  echo "Here we go..."
+#  
+#  # Curl some json to the github API oh damn we so fancy
+#  
+#  # Set the freshly created repo to the origin and push
+#  # You'll need to have added your public key to your github account
+#  git remote set-url origin git@github.com:${USER:-${GITHUBUSER}}/${REPONAME:-${CURRENTDIR}}.git
+#  git push --set-upstream origin master
