@@ -149,7 +149,9 @@ clean_zips:
 clean_mds:
 	rm -f $(mds) README.md
 
-clean: clean_gerbers clean_temps clean_pngs clean_zips clean_mds
+clean: clean_gerbers clean_temps
+
+clean_all: clean_gerbers clean_temps clean_pngs clean_zips clean_mds
 
 info:
 	echo $(github_user)
