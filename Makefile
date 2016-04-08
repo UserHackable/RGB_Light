@@ -135,6 +135,7 @@ push: .github .gitignore $(boards) $(schematics) $(drawings) README.md
 	git add . --all
 	git commit -am 'from Makefile'
 	git push
+	touch push
 
 Intro.md:
 	touch Intro.md
