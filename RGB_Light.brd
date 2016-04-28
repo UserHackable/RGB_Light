@@ -155,11 +155,10 @@ User Hackable
 userhackable.com</text>
 <text x="26.035" y="3.175" size="1.016" layer="22" rot="MR0" align="center">RGB
 Light</text>
-<text x="5.08" y="3.175" size="0.6096" layer="22" rot="MR0" align="center">18 USC 707</text>
-<text x="20.32" y="27.305" size="1.27" layer="21" align="center">Cache Makers</text>
-<text x="15.24" y="17.526" size="1.27" layer="22" rot="MR0" align="center">Cache Makers 4H Club</text>
-<text x="15.24" y="21.59" size="1.016" layer="22" rot="MR0" align="center">cachemakers.org</text>
-<text x="20.32" y="25.781" size="0.8128" layer="21" align="center">cachemakers.org</text>
+<text x="20.32" y="27.305" size="1.27" layer="21" align="center">User Hackable</text>
+<text x="15.24" y="17.526" size="1.27" layer="22" rot="MR0" align="center">User Hackable</text>
+<text x="15.24" y="21.59" size="1.016" layer="22" rot="MR0" align="center">userhackable.com</text>
+<text x="20.32" y="25.781" size="0.8128" layer="21" align="center">userhackable.com</text>
 </plain>
 <libraries>
 <library name="barbary_enterprises">
