@@ -1,0 +1,5 @@
+No.,Digikey part number,Description,MFG Part Number,Manufacturer,Package,Value,Qty,RefDefs,Type,Note
+1, 450-1804-ND, SWITCH TACTILE SPST-NO 0.05A 24V,1825910-7,TE Connectivity Alcoswitch Switches,6.00mm x 6.00mm,SPST-NO,3,"S1,S2,S3",Thru-Hole,Any Tactile Switch with matching footprint will work
+2, BK-913-ND, RETAINER CR2032 WITH PC PINS,BK-913,MPD (Memory Protection Devices),CR2032,,1,U$2,Thru-Hole,
+3, CF14JT51R0CT-ND, RES 51 OHM 1/4W 5% CARBON FILM,CF14JT51R0,Stackpole Electronics Inc.,1/4W 5%,51 Ohm,1,R1,Thru-Hole,Any 51 ohm 5% ¼ watt through hole resistor will work.
+4, N189-ND, BATTERY LITHIUM 3V COIN 20MM,CR2032VP,Energizer Battery Company,CR2032,3v,1,,,Any CR2032 Battery works – DNP.. part of kit when sold retail. 
