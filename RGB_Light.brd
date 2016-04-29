@@ -492,7 +492,7 @@ Please make sure your boards conform to these design rules.</description>
 <element name="U$2" library="battery" package="CR2032-THRU" value="" x="15.24" y="7.62" smashed="yes" rot="R180">
 <attribute name="VALUE" x="19.558" y="13.97" size="1.6764" layer="27" font="vector" rot="R180"/>
 </element>
-<element name="R1" library="barbary_enterprises" package="AXIAL-0.3" value="50" x="6.35" y="26.67" rot="R180"/>
+<element name="R1" library="barbary_enterprises" package="AXIAL-0.3" value="51" x="6.35" y="26.67" rot="R180"/>
 <element name="S2" library="barbary_enterprises" package="TACTILE-PTH" value="" x="15.24" y="21.59" smashed="yes" rot="R180"/>
 <element name="LED2" library="barbary_enterprises" package="LED-OVAL" value="GREEN" x="15.24" y="31.75"/>
 <element name="S3" library="barbary_enterprises" package="TACTILE-PTH" value="" x="24.765" y="21.59" smashed="yes" rot="R180"/>

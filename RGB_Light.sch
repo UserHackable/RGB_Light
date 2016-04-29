@@ -1414,7 +1414,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="S1" library="barbary_enterprises" deviceset="TAC_SWITCH" device="PTH"/>
 <part name="LED1" library="barbary_enterprises" deviceset="LED" device="OVAL" value="RED"/>
 <part name="U$2" library="battery" deviceset="CR2032" device="THM"/>
-<part name="R1" library="barbary_enterprises" deviceset="RESISTOR" device="AXIAL-0.3" value="50"/>
+<part name="R1" library="barbary_enterprises" deviceset="RESISTOR" device="AXIAL-0.3" value="51"/>
 <part name="S2" library="barbary_enterprises" deviceset="TAC_SWITCH" device="PTH"/>
 <part name="LED2" library="barbary_enterprises" deviceset="LED" device="OVAL" value="GREEN"/>
 <part name="S3" library="barbary_enterprises" deviceset="TAC_SWITCH" device="PTH"/>
