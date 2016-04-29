@@ -163,18 +163,22 @@ Light</text>
 <libraries>
 <library name="barbary_enterprises">
 <packages>
-<package name="LED-OVAL">
-<pad name="CATHODE" x="-1.27" y="0" drill="0.8" diameter="1.6764"/>
-<pad name="ANODE" x="1.27" y="0" drill="0.8" diameter="1.6764"/>
-<wire x1="-1.905" y1="0.3175" x2="1.905" y2="0.3175" width="0.127" layer="21" curve="-129.389798"/>
-<wire x1="1.905" y1="-0.3175" x2="-1.905" y2="-0.3175" width="0.127" layer="21" curve="-129.389798"/>
-<wire x1="-0.3175" y1="0.635" x2="-0.3175" y2="0" width="0.127" layer="21"/>
-<wire x1="-0.3175" y1="0" x2="-0.3175" y2="-0.635" width="0.127" layer="21"/>
-<wire x1="-0.3175" y1="0" x2="0.3175" y2="0.635" width="0.127" layer="21"/>
-<wire x1="0.3175" y1="0.635" x2="0.3175" y2="-0.635" width="0.127" layer="21"/>
-<wire x1="0.3175" y1="-0.635" x2="-0.3175" y2="0" width="0.127" layer="21"/>
-<text x="0" y="-1.74625" size="1.016" layer="27" ratio="12" align="top-center">&gt;VALUE</text>
-<text x="0" y="1.27" size="0.4064" layer="25" align="top-center">&gt;NAME</text>
+<package name="LED5MM">
+<description>&lt;B&gt;LED&lt;/B&gt;&lt;p&gt;
+5 mm, round</description>
+<wire x1="2.54" y1="-1.905" x2="2.54" y2="1.905" width="0.2032" layer="21"/>
+<wire x1="2.54" y1="-1.905" x2="2.54" y2="1.905" width="0.254" layer="21" curve="-286.260205" cap="flat"/>
+<wire x1="-1.143" y1="0" x2="0" y2="1.143" width="0.1524" layer="51" curve="-90" cap="flat"/>
+<wire x1="0" y1="-1.143" x2="1.143" y2="0" width="0.1524" layer="51" curve="90" cap="flat"/>
+<wire x1="-1.651" y1="0" x2="0" y2="1.651" width="0.1524" layer="51" curve="-90" cap="flat"/>
+<wire x1="0" y1="-1.651" x2="1.651" y2="0" width="0.1524" layer="51" curve="90" cap="flat"/>
+<wire x1="-2.159" y1="0" x2="0" y2="2.159" width="0.1524" layer="51" curve="-90" cap="flat"/>
+<wire x1="0" y1="-2.159" x2="2.159" y2="0" width="0.1524" layer="51" curve="90" cap="flat"/>
+<circle x="0" y="0" radius="2.54" width="0.1524" layer="21"/>
+<pad name="A" x="-1.27" y="0" drill="0.8128" diameter="1.8796"/>
+<pad name="K" x="1.27" y="0" drill="0.8128" diameter="1.8796"/>
+<text x="2.7559" y="0" size="1.27" layer="25" ratio="10" rot="R90" align="top-center">&gt;NAME</text>
+<text x="4.3434" y="0.0254" size="1.27" layer="27" ratio="10" rot="R90" align="top-center">&gt;VALUE</text>
 </package>
 <package name="TACTILE-PTH">
 <description>&lt;b&gt;OMRON SWITCH&lt;/b&gt;</description>
@@ -487,38 +491,46 @@ Please make sure your boards conform to these design rules.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="LED1" library="barbary_enterprises" package="LED-OVAL" value="RED" x="10.16" y="31.75"/>
+<element name="LED1" library="barbary_enterprises" package="LED5MM" value="RED" x="8.89" y="31.623" smashed="yes" rot="R180">
+<attribute name="NAME" x="8.89" y="29.083" size="1.27" layer="26" ratio="10" rot="MR180" align="top-center"/>
+<attribute name="VALUE" x="8.89" y="33.02" size="1.27" layer="28" ratio="10" rot="MR180" align="top-center"/>
+</element>
 <element name="S1" library="barbary_enterprises" package="TACTILE-PTH" value="" x="5.842" y="21.59" smashed="yes" rot="R180"/>
-<element name="U$2" library="battery" package="CR2032-THRU" value="" x="15.24" y="7.62" smashed="yes" rot="R180">
+<element name="B1" library="battery" package="CR2032-THRU" value="" x="15.24" y="7.62" smashed="yes" rot="R180">
 <attribute name="VALUE" x="19.558" y="13.97" size="1.6764" layer="27" font="vector" rot="R180"/>
 </element>
 <element name="R1" library="barbary_enterprises" package="AXIAL-0.3" value="51" x="6.35" y="26.67" rot="R180"/>
 <element name="S2" library="barbary_enterprises" package="TACTILE-PTH" value="" x="15.24" y="21.59" smashed="yes" rot="R180"/>
-<element name="LED2" library="barbary_enterprises" package="LED-OVAL" value="GREEN" x="15.24" y="31.75"/>
+<element name="LED2" library="barbary_enterprises" package="LED5MM" value="GREEN" x="15.24" y="31.75" smashed="yes" rot="R180">
+<attribute name="NAME" x="15.24" y="29.083" size="1.27" layer="26" ratio="10" rot="MR180" align="top-center"/>
+<attribute name="VALUE" x="15.24" y="33.02" size="1.27" layer="28" ratio="10" rot="MR180" align="top-center"/>
+</element>
 <element name="S3" library="barbary_enterprises" package="TACTILE-PTH" value="" x="24.765" y="21.59" smashed="yes" rot="R180"/>
-<element name="LED3" library="barbary_enterprises" package="LED-OVAL" value="BLUE" x="20.32" y="31.75"/>
+<element name="LED3" library="barbary_enterprises" package="LED5MM" value="BLUE" x="21.59" y="31.75" smashed="yes" rot="R180">
+<attribute name="NAME" x="21.59" y="28.956" size="1.27" layer="26" ratio="10" rot="MR180" align="top-center"/>
+<attribute name="VALUE" x="21.59" y="33.02" size="1.27" layer="28" ratio="10" rot="MR180" align="top-center"/>
+</element>
 <element name="U$1" library="logo" package="USER_HACKABLE" value="USER_HACKABLE" x="15.24" y="8.763" rot="MR0"/>
 </elements>
 <signals>
 <signal name="GND">
-<contactref element="LED1" pad="CATHODE"/>
-<contactref element="U$2" pad="-"/>
-<contactref element="LED2" pad="CATHODE"/>
-<contactref element="LED3" pad="CATHODE"/>
+<contactref element="LED1" pad="K"/>
+<contactref element="B1" pad="-"/>
+<contactref element="LED2" pad="K"/>
+<contactref element="LED3" pad="K"/>
 <wire x1="15.24" y1="7.62" x2="15.24" y2="29.21" width="0.8128" layer="1"/>
 <wire x1="15.24" y1="29.21" x2="13.97" y2="30.48" width="0.8128" layer="1"/>
 <wire x1="13.97" y1="30.48" x2="13.97" y2="31.75" width="0.8128" layer="1"/>
-<wire x1="8.89" y1="31.75" x2="8.89" y2="30.48" width="0.8128" layer="1"/>
+<wire x1="7.62" y1="31.623" x2="8.89" y2="30.48" width="0.8128" layer="1"/>
 <wire x1="8.89" y1="30.48" x2="10.16" y2="29.21" width="0.8128" layer="1"/>
 <wire x1="10.16" y1="29.21" x2="15.24" y2="29.21" width="0.8128" layer="1"/>
-<wire x1="19.05" y1="31.75" x2="19.05" y2="30.48" width="0.8128" layer="1"/>
-<wire x1="19.05" y1="30.48" x2="17.78" y2="29.21" width="0.8128" layer="1"/>
+<wire x1="20.32" y1="31.75" x2="17.78" y2="29.21" width="0.8128" layer="1"/>
 <wire x1="17.78" y1="29.21" x2="15.24" y2="29.21" width="0.8128" layer="1"/>
 </signal>
 <signal name="V_BATT">
 <contactref element="S1" pad="1"/>
-<contactref element="U$2" pad="+2"/>
-<contactref element="U$2" pad="+1"/>
+<contactref element="B1" pad="+2"/>
+<contactref element="B1" pad="+1"/>
 <contactref element="S3" pad="1"/>
 <contactref element="S2" pad="1"/>
 <contactref element="S3" pad="2"/>
@@ -544,7 +556,7 @@ Please make sure your boards conform to these design rules.</description>
 </signal>
 <signal name="N$1">
 <contactref element="S2" pad="3"/>
-<contactref element="LED2" pad="ANODE"/>
+<contactref element="LED2" pad="A"/>
 <contactref element="S2" pad="4"/>
 <wire x1="11.9888" y1="23.8506" x2="16.51" y2="23.8506" width="0.8128" layer="16"/>
 <wire x1="16.51" y1="23.8506" x2="18.4912" y2="23.8506" width="0.8128" layer="16"/>
@@ -552,17 +564,18 @@ Please make sure your boards conform to these design rules.</description>
 </signal>
 <signal name="N$3">
 <contactref element="S3" pad="3"/>
-<contactref element="LED3" pad="ANODE"/>
+<contactref element="LED3" pad="A"/>
 <contactref element="S3" pad="4"/>
 <wire x1="28.0162" y1="23.8506" x2="21.5138" y2="23.8506" width="0.8128" layer="16"/>
-<wire x1="21.59" y1="31.75" x2="21.59" y2="23.9268" width="0.8128" layer="16"/>
+<wire x1="22.86" y1="31.75" x2="22.86" y2="29.21" width="0.8128" layer="16"/>
+<wire x1="22.86" y1="29.21" x2="21.59" y2="27.94" width="0.8128" layer="16"/>
+<wire x1="21.59" y1="27.94" x2="21.59" y2="23.9268" width="0.8128" layer="16"/>
 <wire x1="21.59" y1="23.9268" x2="21.5138" y2="23.8506" width="0.8128" layer="16"/>
 </signal>
 <signal name="N$4">
-<contactref element="LED1" pad="ANODE"/>
+<contactref element="LED1" pad="A"/>
 <contactref element="R1" pad="P$1"/>
-<wire x1="11.43" y1="31.75" x2="11.43" y2="27.94" width="0.8128" layer="16"/>
-<wire x1="11.43" y1="27.94" x2="10.16" y2="26.67" width="0.8128" layer="16"/>
+<wire x1="10.16" y1="31.623" x2="10.16" y2="26.67" width="0.8128" layer="16"/>
 </signal>
 </signals>
 </board>
